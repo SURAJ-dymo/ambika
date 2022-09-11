@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" html xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title >Insert title here</title>
+</head>
+<body>
+
+
+<section >
+<div class="card mr-3 ml-3">
+<div class="card-body">
+<h1 class="text-center">All Photos</h1>
+<div class="container-fluid p-5">
+	
+		<table class="table table-striped">
+			<thead class="bg-primary text-white">
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Name</th>
+					<th scope="col">Photo</th>
+					<th scope="col">Action</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="u:${users}">
+					<th th:text="${u.id}"></th>
+					<td th:text="${u.uname}"></td>
+					<td>
+					
+					<img class="my_photo" src="" th:src="@{'/img/'+${u.imageUrl}}" alt="profile photo"/>
+					
+					</td>
+					<td>
+					
+					<a class="btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${u.id})}">Delete</a> 
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+
+
+	</div>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
